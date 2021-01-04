@@ -32,5 +32,7 @@ Route::apiResources(['/v1/balancepackages'=> 'api\v1\BalancePackageController'],
 
 Route::apiResources(['/v1/categories' => 'api\v1\CategoryController'], ['only' => ['index', 'show']]);
 
+Route::post('update/profile', 'api\v1\ProfileController@updateProfile');
+
 });
 
