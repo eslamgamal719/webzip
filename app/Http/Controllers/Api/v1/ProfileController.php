@@ -17,7 +17,7 @@ class ProfileController extends Controller
 
         $user->update($request->except('_token'));
 
-        return response()->json(['message' => 'تم التحديث بنجاح'], 200);
+        return response()->json(['success' => 'تم التحديث بنجاح'], 200);
     }
 
 }
