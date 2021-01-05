@@ -17,7 +17,10 @@ class CreateLikesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('ad_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
+
+            $table->unique(['ad_id', 'user_id']);
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('NO ACTION');
+            $table->foreign('ad_id')->references('id')->on('ads')->onUpdate('CASCADE')->onDelete('NO ACTION');
             $table->timestamps();
         });
     }

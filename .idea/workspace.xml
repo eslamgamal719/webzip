@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f96ee374-bf53-435c-880c-100fdc753c26" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/BookmarkController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/LikeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/BookmarkRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/BookmarkResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/BookmarkRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/v1/ResetPasswordController copy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ProfileRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/LikeRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BalancePackageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BalancePackageRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_10_9_234113_create_likes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_10_9_234113_create_likes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_15_234130_create_bookmarks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_15_234130_create_bookmarks_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -144,12 +153,14 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel-jwt-auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Requests" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\webzib\app\Http\Requests" />
       <recent name="C:\wamp64\www\webzib\app\Http\Controllers\Api\v1" />
+      <recent name="C:\wamp64\www\webzib\app\Http\Resources" />
       <recent name="C:\wamp64\www\webzib\app\Repositories" />
     </key>
   </component>
@@ -186,7 +197,8 @@
       <workItem from="1609749051238" duration="2181000" />
       <workItem from="1609768799749" duration="6107000" />
       <workItem from="1609786474094" duration="6624000" />
-      <workItem from="1609835371401" duration="4339000" />
+      <workItem from="1609835371401" duration="4629000" />
+      <workItem from="1609878523909" duration="9090000" />
     </task>
     <servers />
   </component>

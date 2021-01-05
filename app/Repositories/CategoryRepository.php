@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Http\Resources\BalancePackageResource;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 
@@ -13,18 +12,17 @@ class CategoryRepository
     {
         $categories = CategoryResource::collection(Category::all());
 
-        if (!$categories) {
+        if ($categories) {
             return response()->json([
-                'status'     => 200,
+                'status' => 200,
                 'categories' => $categories
             ]);
         }
 
         return response()->json([
-            'status'  => 404,
+            'status' => 404,
             'message' => 'Not found any category'
         ]);
-
     }
 
 
@@ -32,18 +30,17 @@ class CategoryRepository
     {
         $category = CategoryResource::collection(Category::where('id', $id)->get());
 
-        if (!$category) {
+        if ($category && Category::whereId($id)->exists()) {
             return response()->json([
-                'status'   => 200,
+                'status' => 200,
                 'category' => $category
             ]);
         }
 
         return response()->json([
-            'status'  => 404,
+            'status' => 404,
             'message' => 'Category is not found'
         ]);
-
     }
 
 }
