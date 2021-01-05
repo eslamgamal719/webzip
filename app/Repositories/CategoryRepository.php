@@ -30,7 +30,7 @@ class CategoryRepository
 
     public function findById($id)
     {
-        $category = CategoryResource::collection(Category::where('id', $id)->first());
+        $category = CategoryResource::collection(Category::where('id', $id)->get());
 
         if (!$category) {
             return response()->json([
