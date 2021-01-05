@@ -13,6 +13,7 @@ class UserController extends Controller
 {
     public function authenticate(Request $request)
     {
+
         $credentials = $request->only('phone', 'password');
 
         try {
@@ -30,7 +31,7 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'frist_name' => 'required|string|max:191',
+            'first_name' => 'required|string|max:191',
             'last_name' => 'required|string|max:191',
             'phone' => 'required|string|max:14',
             'bio' => 'required|string|max:191',
@@ -43,7 +44,7 @@ class UserController extends Controller
         }
 
         $user = User::create([
-            'frist_name' => $request->get('frist_name'),
+            'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
             'phone' => $request->get('phone'),
             'bio' => $request->get('bio'),
@@ -57,11 +58,43 @@ class UserController extends Controller
     }
 
 
+    public function update(Request $request, $id) {
+
+        $validator = Validator::make($request->all(), [
+            "first_name" => 'required|max:50',
+            'last_name'  => 'required|max:50',
+            'phone'      => 'required|unique:users,phone|max:14',
+            'email'      => 'required|unique:users,email|email',
+            'bio'        => 'nullable|max:50'
+        ]);
+
+        if($validator->fails()) {
+            return response()->json($validator->errors()->toJson(), 400);
+        }
+
+        $user = User::find($id);
+
+        $user->update([
+            'frist_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'phone' => $request->phone,
+            'bio' => $request->bio,
+            'email' => $request->email,
+        ]);
+
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+            'user' => $user
+        ], 200);
+    }
+
+
+
     public function getAuthenticatedUser()
     {
         try {
 
-            if (!$user = JWTAuth::parseToken()->authenticate()) {
+            if (! $user = JWTAuth::parseToken()->authenticate()) {
                 return response()->json(['user_not_found'], 404);
             }
 
@@ -82,7 +115,12 @@ class UserController extends Controller
         return response()->json(compact('user'));
     }
 
+/*
+    public function userProfile() {
+        return response()->json(auth()->user());
+    }
 
+*/
 
     public function postReset(Request $request)
     {

@@ -17,13 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::post('register', 'Api\v1\UserController@register');
+Route::put('update/{id}', 'Api\v1\UserController@update');
 Route::post('login', 'Api\v1\UserController@authenticate');
 Route::get('open', 'Api\v1\DataController@open');
 Route::post('password/reset', 'Api\v1\ResetPasswordController@recover')->name('password.reset');
 Route::post('password/change', 'Api\v1\PasswordResetRequestController@passwordResetProcess');
 
 Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::get('/user-profile', 'Api\v1\UserController@userProfile');
 Route::get('user', 'Api\v1\UserController@getAuthenticatedUser');
 Route::get('closed', 'Api\v1\DataController@closed');
 Route::apiResources(['/v1/balancepackages'=> 'api\v1\BalancePackageController'],
@@ -32,7 +35,7 @@ Route::apiResources(['/v1/balancepackages'=> 'api\v1\BalancePackageController'],
 
 Route::apiResources(['/v1/categories' => 'api\v1\CategoryController'], ['only' => ['index', 'show']]);
 
-Route::post('update/profile', 'api\v1\ProfileController@updateProfile');
 
 });
 
+Route::put('update/profile/{id}', 'api\v1\ProfileController@updateProfile');

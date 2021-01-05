@@ -18,8 +18,10 @@ class CategoryResource extends JsonResource
             'id'=> $this->id,
             'title'=> $this->title,
             'description'=> $this->description,
-            'deep'=> $this->amount,
-            'published'=> $this->price,
+            'deep'=> $this->deep,
+            'published'=> $this->published,
+            'user_id'=> $this->user_id,
+            'children' => self::collection($this->whenLoaded('children'))
         ];
     }
 }
