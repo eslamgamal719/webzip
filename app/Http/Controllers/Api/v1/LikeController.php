@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\LikeRequest;
 use App\Models\Like;
+use App\Http\Requests\LikeRequest;
+use App\Http\Controllers\Controller;
 
 class LikeController extends Controller
 {

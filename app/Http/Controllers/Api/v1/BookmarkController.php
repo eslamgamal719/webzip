@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Models\Bookmark;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BookmarkRequest;
-use App\Models\Bookmark;
 use App\Repositories\BookmarkRepository;
-use Illuminate\Support\Facades\Request;
 
 class BookmarkController extends Controller
 {

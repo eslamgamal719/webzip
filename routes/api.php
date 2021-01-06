@@ -37,7 +37,11 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
     Route::apiResources(['/v1/categories' => 'api\v1\CategoryController'], ['only' => ['index', 'show']]);
 
-    Route::apiResources(['/v1/bookmarks' => 'api\v1\BookmarkController'], ['except' => ['create', 'edit']]);
+    Route::apiResources(['/v1/bookmarks' => 'api\v1\BookmarkController']);
+
+    Route::apiResources(['/v1/coupons' => 'api\v1\CouponController']);
+
+    Route::apiResources(['/v1/cities' => 'api\v1\CityController']);
 
     Route::apiResources(['/v1/likes' => 'api\v1\LikeController'], ['only' => ['store', 'destroy']]);
 
